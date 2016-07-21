@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.guesthouser.rangeseekbartestapp.MainActivity"
+    android:background="#000">
+
+    <com.guesthouser.ghrangeseekbar.GHRangeSeekBar
+        android:id="@+id/range1"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:layout_marginBottom="40dp"
+        android:layout_above="@id/range1">
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="#fff"
+        android:text="10"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:text="20"
+        android:layout_alignTop="@+id/txt1"
+        android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <ToggleButton
+        android:id="@+id/toggle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOn="GH Ecommerce"
+        android:textOff="Linear"
+        android:layout_below="@id/range1"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"/>
+
+
+</RelativeLayout>
