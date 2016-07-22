@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         bar.setLineHighlightedColor(Color.GREEN);
         // set seekbar thumb image here
 //        bar.setThumbImage(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
-        bar.setRangeValues(10, 100);
-        min.setText(10 + "");
-        max.setText(100 + "");
+        bar.setRangeValues(500, 50000);
+        min.setText(500 + "");
+        max.setText(50000 + "");
 
         bar.setLineHeight(10);
 
