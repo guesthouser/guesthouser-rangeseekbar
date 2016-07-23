@@ -9,6 +9,14 @@ A sample of discrete values is given below.
 ,34000,36000,38000,40000,45000,50000
 ```
 
+#Mode of rangeseekbar
+
+####LINEAR 
+A regular rangeseekbar
+
+####DISCRETE
+A stteped value rangeseekbar (Supports integer values only)
+
 
 #How to use in project
 
@@ -19,18 +27,23 @@ dependencies {
     compile 'com.guesthouser:guesthouser-rangeseekbar:1.0'
 }
 ```
+###Initialization
 
-#Run test application
+####Use GHRangeSeekbar in xml layout as a view
 
-This repository contains an android project which runs a test app, showing the difference between linear rangeseekbar and guesthouser implementation of rangeseekbar. 
+```
+<com.guesthouser.ghrangeseekbar.GHRangeSeekBar
+        android:id="@+id/range1"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"/>
+```
 
-#Mode of rangeseekbar
+####Map this view in java
 
-####LINEAR 
-A regular rangeseekbar
-
-####DISCRETE
-A stteped value rangeseekbar (Supports integer values only)
+```
+GHRangeSeekBar bar = (GHRangeSeekBar) findViewById(R.id.range1);
+```
 
 
 #Useful methods
@@ -46,7 +59,15 @@ setRangeValues(500, 50000);
 ```
 ####Setting listener for change in values 
 ```
-setOnRangeSeekBarChangeListener();
+setOnRangeSeekBarChangeListener(new GHRangeSeekBar.OnRangeSeekBarChangeListener() {
+            @Override
+            public void onRangeSeekBarValuesChanged(GHRangeSeekBar bar, Object minValue, Object maxValue) {
+            // minValue : minimum value selected by dragging
+            // maxValue : maximum value selected by dragging
+                int min1 = (int)minValue;
+                int max1 = (int)maxValue;
+            }
+        });
 ```
 ####Notify listener while dragging a thumb
 ```
@@ -61,6 +82,11 @@ setLineBgColor(Color.RED);
 setLineHighlightedColor(Color.GREEN);
 ```
 ####Setting bitmap for thumb
+
+![1](https://cloud.githubusercontent.com/assets/7863274/17076346/ddbe81ae-50cd-11e6-9e40-121e0121fd7d.png)
+
+The white circles are thumbs, those can be dragged to change the values
+
 ```
 setThumbImage(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher));
 ```
@@ -69,3 +95,6 @@ setThumbImage(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher)
 setLineHeight(10);
 ```
 
+#Run test application
+
+This repository contains an android project which runs a test app, showing the difference between linear rangeseekbar and guesthouser implementation of rangeseekbar. 
